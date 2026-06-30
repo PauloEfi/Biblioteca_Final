@@ -15,14 +15,14 @@
         <span>BiblioTech</span>
       </a>
       <nav class="nav" aria-label="Navegacao principal">
-        <a href="{{ url_for('catalogo') }}">Acervo</a>
         {% if g.user %}
+        <a href="{{ url_for('catalogo') }}">Acervo</a>
           {% if g.user.role == 'admin' %}
             <a href="{{ url_for('admin_inicio') }}">Painel</a>
             <a href="{{ url_for('admin_usuarios') }}">Usuários</a>
             <a href="{{ url_for('admin_livros') }}">Livros</a>
             <a href="{{ url_for('admin_emprestimos') }}">Empréstimos</a>
-            <a href="{{ url_for('relatorio') }}">Relatórios</a>
+            <a href="{{ url_for('relatorio') }}">Relatório</a>
             <a href="{{ url_for('admin_solicitacoes') }}">Solicitações</a>
           {% else %}
             <a href="{{ url_for('painel') }}">Meu painel</a>
