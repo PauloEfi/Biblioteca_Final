@@ -3,8 +3,6 @@ from functools import wraps
 import os
 from pathlib import Path
 import sqlite3
-
-from dotenv import load_dotenv
 from flask import (
     Flask,
     flash,
@@ -23,9 +21,6 @@ try:
 except ModuleNotFoundError:
     mysql_connector = None
     MySQLIntegrityError = ()
-
-
-load_dotenv()
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "bibliotech-dev-key")
@@ -266,9 +261,7 @@ def roles_required(*roles):
 
 
 def redirect_by_role(role):
-    if role == "admin":
-        return redirect(url_for("admin_inicio"))
-    return redirect(url_for("painel"))
+    return redirect(url_for("catalogo"))
 
 
 def required_fields(form, names):
@@ -400,6 +393,7 @@ def login():
         if user and user["active"] and check_password_hash(user["password_hash"], password):
             session.clear()
             session["user_id"] = user["id"]
+            session["user_name"] = user["name"]
             flash("Login realizado com sucesso.", "success")
             return redirect_by_role(user["role"])
 

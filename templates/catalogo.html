@@ -4,7 +4,11 @@
 {% block content %}
 <div class="page-head">
   <div>
-    <h1>Acervo da biblioteca</h1>
+    {% if session.user_name %}
+    <h1>Boas-vindas, {{ session.user_name }}!</h1>
+    {% else %}
+    <h1>Acervo da BiblioTech</h1>
+    {% endif %}
     <p>Consulta pública de livros com busca por título, autor, ISBN ou categoria.</p>
   </div>
 </div>
