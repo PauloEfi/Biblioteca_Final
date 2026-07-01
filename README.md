@@ -1,5 +1,1 @@
-Grupo:
-Dérick Setubal
-Ediney Novaes
-Hiram Bahia
-Paulo Felipe
+Grupo: Dérick Setubal, Ediney Novaes, Hiram Bahia e Paulo Felipe.
